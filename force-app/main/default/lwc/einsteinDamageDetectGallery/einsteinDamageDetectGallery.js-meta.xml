@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <masterLabel>Einstein Damage Detect Gallery</masterLabel>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="labelDescription" type="String" label="Label: Description" description="The label for the description" default="Description" />
+            <property name="labelEvaluation" type="String" label="Label: Evaluation" description="The label for the evaluation" default="Evaluation" />
+            <property name="labelPart" type="String" label="Label: Part" description="The label for the part" default="Part" />
+
+            <property name="partDamageVeryImportant" type="String" label="Very important damage text" description="Score Over 90" default="Very important damage" />
+            <property name="partDamageImportant" type="String" label="Important damage text" description="Score Over 70" default="Important damage" />
+            <property name="partDamageNormal" type="String" label="Normal damage text" description="Score Over 50" default="Normal damage" />
+            <property name="partDamageSmall" type="String" label="small damage text" description="Score Over 30" default="Small damage" />
+            <property name="partDamageVerySmall" type="String" label="Very small damage text" description="Score Under 30" default="Very small damage" />
+          
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

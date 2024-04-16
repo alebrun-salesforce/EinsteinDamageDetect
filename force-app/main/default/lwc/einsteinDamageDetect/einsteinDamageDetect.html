@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title={title} icon-name="custom:custom14" id="cardAnalyze">
+        <div class="slds-m-around_medium" id="MainDiv">
+            <!-- File input for image upload -->
+            <lightning-input type="file" label="Photos"
+                             onchange={handleFileChange} accept='image/*'
+                             multiple>
+            </lightning-input>
+
+            <lightning-button label={btnLabelAnalyse}
+                variant="brand"
+                id="analyzeImages"
+                class="slds-m-top_small"
+                onclick={analyzeImages}
+                disabled={isAnalyzing}>
+            </lightning-button>
+            <!-- Area to display uploaded images -->
+            <div class="slds-m-top_small car-pictures">
+                <template for:each={uploadedImages} for:item="image">
+                  <div key={image.url}>
+                    <img src={image.url} alt="Photos" class="car-picture"/>
+                  </div>
+                </template>
+              </div>
+
+              <div if:true={isAnalyzing} class="slds-m-top_medium" style="position:absolute;top:0;left:0">
+                <div>Analysing the pictures...</div>
+                <div if:true={isCreatingRecords}>Creating the records...</div>
+              </div>
+              
+            <div if:true={isAnalyzing} class="slds-m-top_medium">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+            <template if:true={hasAnalysisResults}>
+                <div class="slds-m-top_medium" id="ContainerResult">
+                    <template for:each={analysisResults} for:item="result" for:index="index">
+                        <div key={result.Id}>
+                            <h3>{resultTitle}</h3>
+                            <pre>{result.formattedResult}</pre>
+                        </div>
+                    </template>
+                </div>
+            </template>            
+        </div>
+    </lightning-card> 
+</template>

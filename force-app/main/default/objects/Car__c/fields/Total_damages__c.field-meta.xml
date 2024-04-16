@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_damages__c</fullName>
+    <description>The total number of damages</description>
+    <externalId>false</externalId>
+    <label>Total damages</label>
+    <summaryForeignKey>Damage__c.Car__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

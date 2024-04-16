@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="einsteinDamageDetect">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Einstein Damage Detect</masterLabel>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="promptLanguage" type="String" label="Prompt Language" description="Language for the prompts" default="English" datasource="English,Français"/>
+            <property name="apiKey" type="String" label="API Key" description="API Key for external service integration"/>
+            <property name="title" type="String" label="Title" description="Title of the component" default="Einstein Damage Detect"/>
+            <property name="resultTitle" type="String" label="Result Title" description="Title to display for the analysis results" default="Analysis Results"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

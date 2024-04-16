@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>UserCriteria</name>
+    </types>
+    <types>
+        <members>Car__c.Total_damages__c</members>
+        <members>Car__c.brand__c</members>
+        <members>Car__c.color__c</members>
+        <members>Car__c.condition__c</members>
+        <members>Car__c.immatriculation__c</members>
+        <members>Car__c.model__c</members>
+        <members>Car__c.summary__c</members>
+        <members>Damage__c.Car__c</members>
+        <members>Damage__c.description__c</members>
+        <members>Damage__c.evaluation__c</members>
+        <members>Damage__c.part__c</members>
+        <members>Damage__c.picture__c</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types> 
+    <types>
+        <members>einsteinDamageDetectGalleryController</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>Car__c-Car Layout</members>
+        <members>Damage__c-Damage Layout</members>
+        <name>Layout</name>
+    </types>
+  
+  <types>
+        <members>Car__c</members>
+        <members>Damage__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>https_api_openai_com</members>
+        <name>CorsWhitelistOrigin</name>
+    </types>
+    <types>
+        <members>OpenAI</members>
+        <name>CspTrustedSite</name>
+    </types>
+        <types>
+        <members>Car__c-en_US</members>
+        <members>Damage__c-en_US</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+       <types>
+        <members>Vehicule_Manager</members>
+        <name>CustomApplication</name>
+    </types>
+
+      <types>
+        <members>einsteinDamageDetect</members>
+        <members>einsteinDamageDetectGallery</members>
+        <name>LightningComponentBundle</name>
+    </types>
+   
+ <types>
+        <members>EinsteinDamageDetect</members>
+        <name>PermissionSet</name>
+    </types>
+
+        <types>
+        <members>Car__c</members>
+        <members>Damage__c</members>
+        <name>TopicsForObjects</name>
+    </types>
+
+    <types>
+            <members>Car__c.All</members>
+        <name>ListView</name>
+    </types>
+    
+    <version>59.0</version>
+</Package>
