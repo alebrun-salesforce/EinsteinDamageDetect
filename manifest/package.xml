@@ -18,6 +18,12 @@
         <members>New_vehicule_analyzer</members>
         <name>UserCriteria</name>
     </types>
+
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>UiViewDefinition</name>
+    </types>
+
     <types>
         <members>Car__c.Total_damages__c</members>
         <members>Car__c.brand__c</members>
@@ -93,6 +99,16 @@
         <name>ListView</name>
     </types>
     
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>UserCriteria</name>
+    </types>
+
+    <types>
+        <members>New_vehicule_analyzer</members>
+        <name>Dashboard</name>
+    </types>
+
     <version>59.0</version>
 </Package>
 
