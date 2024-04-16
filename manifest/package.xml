@@ -3,12 +3,17 @@
 
     <types>
         <members>New_vehicule_analyzer</members>
+        <members>Car__c</members>
         <name>CustomTab</name>
     </types>
     <types>
         <members>New_vehicule_analyzer</members>
+        <members>Vehicule_Manager_UtilityBar</members>
+        <members>Car_Record_Page</members>
         <name>FlexiPage</name>
     </types>
+
+    
     <types>
         <members>New_vehicule_analyzer</members>
         <name>UserCriteria</name>
@@ -90,3 +95,4 @@
     
     <version>59.0</version>
 </Package>
+
