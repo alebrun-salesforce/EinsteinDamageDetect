@@ -19,6 +19,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>apiKey</name>
+                    <value>Your OpenAI API KEY</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>promptLanguage</name>
