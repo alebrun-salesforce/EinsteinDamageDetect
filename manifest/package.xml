@@ -13,12 +13,6 @@
         <name>FlexiPage</name>
     </types>
 
-    
-    <types>
-        <members>New_vehicule_analyzer</members>
-        <name>UserCriteria</name>
-    </types>
-
     <types>
         <members>New_vehicule_analyzer</members>
         <name>UiViewDefinition</name>
