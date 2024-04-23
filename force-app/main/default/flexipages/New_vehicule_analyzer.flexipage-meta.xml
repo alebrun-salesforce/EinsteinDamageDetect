@@ -19,7 +19,6 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>apiKey</name>
-                    <value>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</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>promptLanguage</name>
