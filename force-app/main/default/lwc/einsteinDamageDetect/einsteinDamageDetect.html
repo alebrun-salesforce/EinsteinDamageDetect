@@ -10,7 +10,7 @@
             <lightning-button label={btnLabelAnalyse}
                 variant="brand"
                 id="analyzeImages"
-                class="slds-m-top_small"
+                class="slds-m-top_small" 
                 onclick={analyzeImages}
                 disabled={isAnalyzing}>
             </lightning-button>
@@ -23,24 +23,33 @@
                 </template>
               </div>
 
-              <div if:true={isAnalyzing} class="slds-m-top_medium" style="position:absolute;top:0;left:0">
-                <div>Analysing the pictures...</div>
-                <div if:true={isCreatingRecords}>Creating the records...</div>
+              <div if:true={isAnalyzing} class="slds-m-top_medium" style="position:absolute;top:0;left:0;z-index:9999;right:0;text-align:center;font-size:25px">
+                <div>{labelFirstLoadingMessage}</div>
               </div>
-              
-            <div if:true={isAnalyzing} class="slds-m-top_medium">
+              <div if:true={isAnalyzing} class="slds-m-top_medium">
                 <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
             </div>
-            <template if:true={hasAnalysisResults}>
+
+            <div if:true={isCreatingRecords} class="slds-m-top_medium">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+
+              <div if:true={isCreatingRecords} class="slds-m-top_medium" style="position:absolute;top:0;left:0;z-index:9999;right:0;text-align:center;font-size:25px">
+                <div>{labelSecondLoadingMessage}</div>
+              </div>
+              
+
+              <template if:true={hasAnalysisResults}>
                 <div class="slds-m-top_medium" id="ContainerResult">
+                  <lightning-accordion allow-multiple-sections-open>
                     <template for:each={analysisResults} for:item="result" for:index="index">
-                        <div key={result.Id}>
-                            <h3>{resultTitle}</h3>
-                            <pre>{result.formattedResult}</pre>
-                        </div>
+                      <lightning-accordion-section key={result.Id} name={result.Id} label={resultTitle}>
+                        <pre>{result.formattedResult}</pre>
+                      </lightning-accordion-section>
                     </template>
+                  </lightning-accordion>
                 </div>
-            </template>            
+              </template>         
         </div>
     </lightning-card> 
 </template>

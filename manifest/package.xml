@@ -90,7 +90,7 @@
 
     <types>
             <members>Car__c.All</members>
-        <name>ListView</name>
+            <name>ListView</name>
     </types>
     
     <types>

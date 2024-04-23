@@ -15,7 +15,9 @@ export default class einsteinDamageDetect extends LightningElement {
     @api apiKey; // Must be set by the user
     @api title = 'Einstein Damage Detect'; // Default title of the card
     @api resultTitle = 'Analysis Results'; // Default title for results
-    @api btnLabelAnalyse = 'Analyze'; // Default label for button Analyze
+    @api btnLabelAnalyse;
+    @api labelFirstLoadingMessage;
+    @api labelSecondLoadingMessage;
 
     // Expected AI Response
     promptJSON = `{
@@ -34,10 +36,6 @@ export default class einsteinDamageDetect extends LightningElement {
         ]
     }`;
 
-    // Choose the correct prompt based on the selected language
-    get prompt() {
-        return this.promptLanguage === 'Français' ? this.frenchPrompt : this.englishPrompt;
-    }
 
    // Handler for file input change
    handleFileChange(event) {
@@ -73,13 +71,22 @@ export default class einsteinDamageDetect extends LightningElement {
         
         console.log('Base64 conversion complete. Preparing API request...');
         
+        console.log("language");
+        console.log(this.promptLanguage);
+    
+        var prompt = this.englishPrompt;
+        if(this.promptLanguage != 'English')
+            prompt = this.frenchPrompt;
+
+            console.log(prompt);
+
         const payload = {
             model: 'gpt-4-turbo',
             messages: [{
                 role: 'user',
                 content: [{
                     type: 'text',
-                    text: this.prompt
+                    text: prompt
                 }, ...base64Images.map(base64 => ({
                     type: 'image_url',
                     image_url: {
@@ -131,12 +138,18 @@ export default class einsteinDamageDetect extends LightningElement {
                     this.isCreatingRecords = false;
                 } catch (e) {
                     console.error('Error parsing API response:', e);
-                    alert('The response from the OpenAI API was not in the expected format. Please check the console for more details.');
+                    this.showToast('Erreur', "Please retry to process your photo", 'error');
+                    this.resetLoadingState();
                     return;
+
+
                 }
             } else {
                 console.error('Unexpected response from OpenAI API:', data);
-                alert('An unexpected response was received from the OpenAI API. Please check the console for more details.');
+                this.showToast('Erreur', "Please retry to process your photo", 'error');
+                this.resetLoadingState();
+                return;
+            
             }
             
             console.log('Analysis results:', this.analysisResults);
@@ -228,6 +241,21 @@ export default class einsteinDamageDetect extends LightningElement {
         });
     }
 
+    showToast(title, message, variant) {
+        const event = new ShowToastEvent({
+          title: title,
+          message: message,
+          variant: variant
+        });
+        this.dispatchEvent(event);
+      }
+      
+      resetLoadingState() {
+        this.isAnalyzing = false;
+        this.isCreatingRecords = false;
+        this.analysisResults = [];
+      }
+
 
     /// PROMPTS ///
     englishPrompt = `You are a specialized AI in vehicle analysis. You only communicate with the JSON format that I provide.
@@ -249,10 +277,12 @@ export default class einsteinDamageDetect extends LightningElement {
     
     Go ahead and analyze the vehicle images and respond only in the JSON format without line breaks, starting with { and ending with }
     `;
+
+
     frenchPrompt = `Tu es une IA spécialisée dans l'analyse de véhicule. Tu ne communique uniquement avec le format JSON que je te donne.
     Tu reçois une liste de photo d'un véhicule et tu réponds en m'analysant le véhicule et ses dégats.
 
-    Analyse chaque photo et donne les informations au format suivant:
+    Analyse chaque photo et donne les informations en Français au format suivant:
     ${this.promptJSON}
 
     Modèle (model): Le modèle du véhicule
