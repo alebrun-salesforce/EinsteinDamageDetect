@@ -1,4 +1,4 @@
-// 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
+
 // Don't forget to add https://api.openai.com to the trusted URL and CORS
 import { LightningElement, track, api } from 'lwc';
 import { createRecord } from 'lightning/uiRecordApi';
