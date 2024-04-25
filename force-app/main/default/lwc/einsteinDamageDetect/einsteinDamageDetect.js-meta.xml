@@ -7,6 +7,7 @@
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
         <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
@@ -18,5 +19,21 @@
             <property name="labelFirstLoadingMessage" type="String" label="Label of first loading message" description="Message shown while waiting for image analysis response" default="Analyzing the photos..."/>
             <property name="labelSecondLoadingMessage" type="String" label="Label of second loading message" description="Message shown while waiting for record creation" default="Creating records..."/>
         </targetConfig>
+
+
+
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="promptLanguage" type="String" label="Prompt Language" description="Language for the prompt: Français or English" default="English"/>
+            <property name="apiKey" type="String" label="API Key" description="API Key for external service integration"/>
+            <property name="title" type="String" label="Title" description="Title of the component" default="Einstein Damage Detect"/>
+            <property name="resultTitle" type="String" label="Result Title" description="Title to display for the analysis results" default="Analysis Results"/>
+            <property name="btnLabelAnalyse" type="String" label="Label of the button" default="GO"/>
+            <property name="labelFirstLoadingMessage" type="String" label="Label of first loading message" description="Message shown while waiting for image analysis response" default="Analyzing the photos..."/>
+            <property name="labelSecondLoadingMessage" type="String" label="Label of second loading message" description="Message shown while waiting for record creation" default="Creating records..."/>
+
+            <property name="done" type="Boolean" label="Car ID" description="" role="outputOnly" />
+        </targetConfig>
+
+
     </targetConfigs>
 </LightningComponentBundle>

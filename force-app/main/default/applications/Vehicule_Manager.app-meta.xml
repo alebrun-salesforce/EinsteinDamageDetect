@@ -17,10 +17,10 @@
     <utilityBar>Vehicule_Manager_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
-            <tab>Car__c</tab>
+            <tab>New_vehicule_analyzer</tab>
         </mappings>
         <mappings>
-            <tab>New_vehicule_analyzer</tab>
+            <tab>Car__c</tab>
         </mappings>
     </workspaceConfig>
 </CustomApplication>

@@ -4,7 +4,7 @@ import getDamages from '@salesforce/apex/einsteinDamageDetectGalleryController.g
 export default class EinsteinDamageDetectGallery extends LightningElement {
     @api recordId;
 
-    @api labelDescription
+    @api labelDescription;
     @api labelEvaluation;
     @api labelPart;
     

@@ -18,6 +18,7 @@ export default class einsteinDamageDetect extends LightningElement {
     @api btnLabelAnalyse;
     @api labelFirstLoadingMessage;
     @api labelSecondLoadingMessage;
+    @api done = false;
 
     // Expected AI Response
     promptJSON = `{
@@ -37,15 +38,18 @@ export default class einsteinDamageDetect extends LightningElement {
     }`;
 
 
-   // Handler for file input change
-   handleFileChange(event) {
-    const files = Array.from(event.target.files);
-    this.uploadedImages = files.map(file => {
-        const url = URL.createObjectURL(file);
-        return { url, file };
-    });
-}
-
+    handleFileChange(event) {
+        const files = Array.from(event.target.files);
+        this.uploadedImages = files.map(file => {
+            const url = URL.createObjectURL(file);
+            return { url, file };
+        });
+    
+        // Automatically trigger analysis if the button label is empty
+        if (!this.btnLabelAnalyse || this.btnLabelAnalyse.trim() === "") {
+            this.analyzeImages();
+        }
+    }
   // Convert file to base64 without the data URL prefix
   convertFileToBase64(file) {
     return new Promise((resolve, reject) => {
@@ -158,6 +162,7 @@ export default class einsteinDamageDetect extends LightningElement {
             alert('An error occurred while analyzing the images. Please check the console for more details.');
         } finally {
             this.isAnalyzing = false;
+            this.done = true;
             console.log('Analysis process complete.');
         }
     }
